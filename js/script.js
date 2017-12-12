@@ -28,18 +28,23 @@ function createTable(auto, headerAuto){
                 text += '<tr>';
                     var greitis, laikas;
                     for (var j = 0; j < auto[i].length; j++){
-                        text += '<td>' + auto [i][j] + '</td>';
+                        text += '<td>' ;
                         switch (j){
                             case 1:
                                 atstumas = auto [i][j]/1000;
+                                text += atstumas.toFixed(2);
                                 break;
                             case 2:
                                 laikas = auto [i][j]/3600;
+                                text += laikas.toFixed(2);
                                 break;
+                            default:
+                                text += auto [i][j];
                         }
+                        text += '</td>';
                     }
                     text += '<td>' + (atstumas / laikas).toFixed(0) + '</td>';
-                text += '</tr>'
+                text += '</tr>';
 
             }
         text += '</tbody>';
